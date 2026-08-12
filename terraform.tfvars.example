@@ -1,0 +1,20 @@
+aws_region = "ap-northeast-1"
+
+# Both jobs are submitted by default. Use ["ch03"] first for a smaller trial.
+training_jobs = ["ch03", "ch06"]
+
+# Change this suffix when you want to submit another immutable Training Job.
+job_name_suffix = "v1"
+
+instance_type = "ml.g5.xlarge"
+
+# Paths inside the SageMaker training container. These files are bundled from .data/.
+ch03_data_path      = "/opt/ml/code/.data/codebot/tiny_codes.bin"
+ch03_tokenizer_path = "/opt/ml/code/.data/codebot/merge_rules.pkl"
+
+ch06_train_data_path      = "/opt/ml/code/.data/storybot/tiny_stories_train.bin"
+ch06_validation_data_path = "/opt/ml/code/.data/storybot/tiny_stories_valid.bin"
+ch06_tokenizer_path       = "/opt/ml/code/.data/storybot/merge_rules.pkl"
+
+# Set to true only if model/checkpoint deletion on terraform destroy is acceptable.
+force_destroy_bucket = false
